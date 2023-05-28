@@ -1,0 +1,5 @@
+export * from './ActiveProject'
+export * from './Contacto'
+export * from './Home'
+export * from './SobreNosotros'
+export * from './Trabajos'
