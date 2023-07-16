@@ -7,7 +7,6 @@ import {useProjectsStore} from "../hooks/useProjectsStore";
 export const Trabajos = () => {
     const {startGetProjectsCategories} = useProjectsStore();
 
-
     const { 
         categories,
         projectListDataless

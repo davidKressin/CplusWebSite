@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { getProjectsCategories, 
-    setActiveProject } from "../store/projects/projectsSlice";
+    setActiveProject, setIsLoading } from "../store/projects/projectsSlice";
 
 
 export const useProjectsStore = () => {
     const dispatch = useDispatch();
-    const { projectList, projectListDataless, activeProject, categories } = useSelector(state => state.projects);
+    const { projectList,isLoading, projectListDataless, activeProject, categories } = useSelector(state => state.projects);
 
 
     const startGetProjectsCategories = () => {
@@ -22,6 +22,14 @@ export const useProjectsStore = () => {
         return projectsByCategory;
     }
 
+    const startSetActiveProjectFilteredData = (filteredData)=>{
+        dispatch(setActiveProject(filteredData));
+    };
+
+    const startSetIsLoading=(payload)=>{
+        console.log(payload);
+        dispatch(setIsLoading(payload))
+    }
 
 
     return {
@@ -29,9 +37,12 @@ export const useProjectsStore = () => {
         projectList,
         categories,
         activeProject,
+        isLoading,
 
         //methods
         startGetProjectsByCategory,
         startGetProjectsCategories,
+        startSetActiveProjectFilteredData,
+        startSetIsLoading
     }
 }

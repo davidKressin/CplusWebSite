@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useProjectsStore } from '../hooks';
+import { Spinner } from './Spinner';
 import "./styles/paginationStyle.css"
 
 export const Pagination = ({ totalPages=1, currentPage, nextPage, prevPage, goToPage }) => {
     const [activePage, setActivePage] = useState(currentPage); // Estado para mantener la página activa
+    let anchoPantalla = window.innerWidth;
+    let numero_de_botones = anchoPantalla / 100;
+    // const [loading, setLoading] = useState(false);
+    const {isLoading} = useProjectsStore();
 
+
+    
     useEffect(() => {
         // Actualizar la clase "active" del botón al cambiar la página activa
         const buttons = document.getElementsByClassName("button");
@@ -16,6 +24,7 @@ export const Pagination = ({ totalPages=1, currentPage, nextPage, prevPage, goTo
             }
         }
     }, [activePage, currentPage]);
+
 
     const handlePageClick = (pageNumber) => {
         setActivePage(pageNumber); // Actualizar el estado de la página activa
@@ -38,7 +47,7 @@ export const Pagination = ({ totalPages=1, currentPage, nextPage, prevPage, goTo
     }
 
     return (
-        <div className='col-lg-10 mx-auto col-md-12 col-sm-12 row justify-content-around p-0 mb-4 m-0'>
+        <div className='col-lg-10 mx-auto max-width-100 col-md-12 col-sm-12 row justify-content-around p-0 mb-4 m-0 flex-nowrap'>
             <button className="button bg-secondary" onClick={()=>handleClick("prevPage")} disabled={(currentPage<2) ? true :false}>{"<"}</button>
             {/* Renderizar los botones de paginación */}
             {Array.from({ length: totalPages }, (_, index) => {
@@ -46,7 +55,7 @@ export const Pagination = ({ totalPages=1, currentPage, nextPage, prevPage, goTo
                 return (
                     <div
                         key={pageNumber}
-                        className={`button ${(totalPages>10 && (pageNumber>currentPage+10) || (pageNumber<currentPage-10)) ? "hidden" : ""}`}
+                        className={`button ${(totalPages>numero_de_botones && (pageNumber>currentPage+numero_de_botones) || (pageNumber<currentPage-numero_de_botones)) ? "hidden" : ""}`}
                         onClick={() => handlePageClick(pageNumber)}
                     >
                         {pageNumber}
@@ -54,6 +63,7 @@ export const Pagination = ({ totalPages=1, currentPage, nextPage, prevPage, goTo
                 );
             })}
             <button className='button bg-secondary' onClick={()=>handleClick("nextPage")} disabled={(currentPage>=totalPages) ? true :false}>{">"}</button>
+            {/* {isLoading ? <Spinner/> : ""} */}
         </div>
     )
 }

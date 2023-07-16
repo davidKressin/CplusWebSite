@@ -11,7 +11,7 @@ export const Item = ({img, table_name, name, id, description, category}) => {
                     <h5 className="card-title" style={{"fontSize":"1.2rem"}}>{name}</h5>
                     <p className="card-text font-weight-bold lead" style={{"fontSize":"0.8rem"}}>{category}</p>
                     <p className="card-text lead" style={{"fontSize":"0.85rem"}}><small>{description}</small></p>
-                    <p className="card-text lead" style={{"fontSize":"0.85rem"}}><small>Código: {id}</small></p>
+                    {/* <p className="card-text lead" style={{"fontSize":"0.85rem"}}><small>Código: {id}</small></p> */}
                 </div>
                 <div className="card-footer d-flex flex-row justify-content-around">
                     <Link className="btn btn-info d-block col-md-12" to={see_more}>

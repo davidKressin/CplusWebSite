@@ -123,8 +123,14 @@ export const projectSlice = createSlice({
             state.categories = newSections;
         },
         setActiveProject: (state, { payload }) => {
+            state.isLoading = true;
             const activeProject = state.projectListDataless.filter(project => project.name == payload);
             state.activeProject = activeProject;
+            state.isLoading = false;
+        },
+        setIsLoading:(state, {payload})=>{
+            state.isLoading = payload;
+
         }
     },
     extraReducers: (builder) => {
@@ -163,5 +169,6 @@ export const projectSlice = createSlice({
 export const {
     setProjectList,
     getProjectsCategories,
-    setActiveProject
+    setActiveProject,
+    setIsLoading
 } = projectSlice.actions;

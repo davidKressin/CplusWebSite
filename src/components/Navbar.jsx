@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { IconHorizontal } from './IconHorizontal'
 
 export const Navbar = () => {
     return (
@@ -12,7 +13,7 @@ export const Navbar = () => {
                 <div className="container-fluid p-0 flex-wrap">
 
                     <Link to="" style={{"textDecoration":"none"}} className="mx-auto text-dark">
-                        <img src="https://centrodeinvestigacioningenieria.udd.cl/wp-content/uploads/2021/09/Horizontal.svg" className='p-4' height="100" alt=""/>
+                        <IconHorizontal/>
                     </Link>
 
                     <div className="row col-md-12 m-0 p-0 bg-customprimary">
@@ -32,31 +33,17 @@ export const Navbar = () => {
                             <li className="nav-item active">
                                 <Link to="sobreNosotros" className="nav-link text-white">SOBRE NOSOTROS</Link>
                             </li>
-                            {/* <li className="nav-item active">
-                                <Link to="contacto" className="nav-link text-white">CONTACTO</Link>
-                            </li> */}
+                            
                         </ul>
                         <div className="d-flex row">
-                            {/* <!-- facebook -->
-                            <?php if(!empty($info->facebook)):?> */}
+                            
                             <Link target="_blank" className="bg-white text-customprimary mx-1 icon-fab-light rounded-circle text-center" to="home">
                                 <span><i className="fab fa-facebook"></i></span>
                             </Link>
-                            {/* <?php endif;?> */}
-
-                            {/* <!-- youtube -->
-                            <?php if(!empty($info->youtube)):?> */}
-                            {/* <Link target="_blank" className="bg-danger mx-1 icon-fab-light rounded-circle text-center" to="/">
-                                <span><i className="fab fa-whatsapp"></i></span>
-                            </Link> */}
-                            {/* <?php endif;?> */}
-
-                            {/* <!-- instagram -->
-                            <?php if(!empty($info->instagram)):?> */}
+                            
                             <Link target="_blank" className="bg-white  text-customprimary mx-1 icon-fab-light rounded-circle text-center" to="home">
                                 <span><i className="fab fa-instagram"></i></span>
                             </Link>
-                            {/* <?php endif;?> */}
                         </div>
                     </div>
                 </div>

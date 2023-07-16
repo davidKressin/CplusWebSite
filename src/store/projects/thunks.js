@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveProject } from "./projectsSlice";
 
 
 export const startGetProjectListDataless = createAsyncThunk('projects/startGetProjectsListDataless', async()=>{
@@ -14,3 +15,4 @@ export const startSetActiveProject = createAsyncThunk('projects/startSetActivePr
     const data = await response.json();
     return data;
 });
+

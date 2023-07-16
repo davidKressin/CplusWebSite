@@ -1,4 +1,5 @@
-import { useFilter, usePagination } from "../hooks";
+import { useEffect } from "react";
+import { useFilter, usePagination, useProjectsStore } from "../hooks";
 import { Pagination } from "./Pagination";
 
 export const ProjectTable = ({ data = [], filter = {} }) => {
@@ -11,10 +12,21 @@ export const ProjectTable = ({ data = [], filter = {} }) => {
     }, {})
 
     const headers = data.length > 0 ? Object.keys(objetoConMasPropiedades) : [];
-
+    
     // filtro 
     const { filteredData, totalPages } = useFilter({ data, filter, currentPage, itemsPerPage });
+    
+    const options = {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+    };
 
+    // useEffect(()=>{
+        // startSetActiveProjectFilteredData(filteredData);
+    // },[filteredData])
     return (
         <>
             &nbsp;
@@ -52,25 +64,18 @@ export const ProjectTable = ({ data = [], filter = {} }) => {
                     {filteredData.map((x, index) => {
                         return (
                             <tr key={x.id}>
-                                {Object.entries(x).map(([key, value]) => {
-                                    if (key == "datetime" || key == "ingreso") {
-                                        const options = {
-                                            day: 'numeric',
-                                            month: 'numeric',
-                                            year: 'numeric',
-                                            hour: 'numeric',
-                                            minute: 'numeric',
-                                          };
+                                {
+                                Object.entries(x).map(([key, value]) => {
+                                    if (key == "timestamp" || key == "ingreso") {
                                         const date = new Date(value).toLocaleString('es-ES', options);
-                                        console.log("fecha formateada:", date)
                                         return (
                                             <td key={key}>{date}</td>
                                         )
                                     } else {
                                         return (
                                             <td key={key}>{value}</td>
-                                        )
-                                    }
+                                    )
+                                }
                                 })}
                             </tr>
                         )
