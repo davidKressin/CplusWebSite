@@ -1,17 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { useDispatch, useSelector } from "react-redux";
-import { setActiveProject } from "./projectsSlice";
+const url_base = "http://superusuario.cl/api/"
 
 
 export const startGetProjectListDataless = createAsyncThunk('projects/startGetProjectsListDataless', async()=>{
-    console.log("desde thunk get dataless")
-    const response = await fetch("http://localhost:4000/api/projects/dataless");
+    const response = await fetch(`${url_base}projects/dataless`);
     const data = await response.json();
     return data;
 });
 export const startSetActiveProject = createAsyncThunk('projects/startSetActiveProject', async(table_name)=>{
-    console.log("desde thunk", table_name);
-    const response = await fetch(`http://localhost:4000/api/projects/${table_name}`);
+    const response = await fetch(`${url_base}projects/${table_name}`);
     const data = await response.json();
     return data;
 });
