@@ -2,7 +2,7 @@ import React from 'react'
 
 export const IconHorizontal = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 553.41 118.64" className='p-4' height="100" width={"500px"}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 553.41 118.64" className='p-4' height="100">
         <defs>
             <style dangerouslySetInnerHTML={{__html: ".cls-1{fill:#27273f;}.cls-2{fill:#55f29f;}.cls-3{fill:#292a2b;}" }} />
         </defs>

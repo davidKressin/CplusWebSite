@@ -260,8 +260,8 @@
 
   .opacity-2 {
 
-    opacity:0.4!important;
-
+      opacity:0.4!important;
+      
   }
 
   .opacity-3 {
@@ -425,3 +425,14 @@
         text-align: center;
     }
 }
+
+.model { 
+    animation: spin 10s linear infinite;
+    height: 250px;
+   }
+  
+   @keyframes spin {
+     to {
+       transform: rotateY(1turn)
+     }
+   }

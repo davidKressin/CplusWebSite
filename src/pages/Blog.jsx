@@ -13,7 +13,8 @@ export const Blog = () => {
             
             <ItemBlog 
                 info={{name:"Dispensador de pastillas", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab id veniam tempore ratione enim nemo odio corrupti molestiae nihil eum consectetur voluptate unde sed facilis aliquid, voluptas rem exercitationem quidem."}} 
-                imgDirection="right" imgPath="/blog/dispensador.png" imgWidth="350px" bg="customprimary" text="white" bottomWaveColor="light" 
+                threeD={true}
+                imgDirection="right" imgPath="/models/dispensador 1.glb" imgWidth="350px" bg="customprimary" text="white" bottomWaveColor="light" 
             />
             <ItemBlog 
                 info={{name:"Pastillero", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab id veniam tempore ratione enim nemo odio corrupti molestiae nihil eum consectetur voluptate unde sed facilis aliquid, voluptas rem exercitationem quidem."}} 
@@ -27,11 +28,12 @@ export const Blog = () => {
             <ItemBlog 
                 info={{name:"Atril", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab id veniam tempore ratione enim nemo odio corrupti molestiae nihil eum consectetur voluptate unde sed facilis aliquid, voluptas rem exercitationem quidem."}} 
                 imgVertical={true}
-                imgDirection="left" imgPath="/blog/atril.png" imgWidth="350px" bg="light" text="customprimary" bottomWaveColor="customprimary"
+                threeD={true}
+                imgDirection="left" imgPath="/models/Atril DF 19-06-2023.glb" imgWidth="350px" bg="light" text="customprimary" bottomWaveColor="customprimary"
             />
             <ItemBlog 
                 info={{name:"Seguimiento de bacterias", description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab id veniam tempore ratione enim nemo odio corrupti molestiae nihil eum consectetur voluptate unde sed facilis aliquid, voluptas rem exercitationem quidem."}} 
-                imgDirection="right" 
+                imgDirection="right"
                 imgPath="/blog/bacteria-removebg-preview.png" imgWidth="350px" bg="customprimary" text="white" bottomWaveColor="customprimary"
             />
 

@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 const url_base = "http://superusuario.cl/api/"
 
-
 export const startGetProjectListDataless = createAsyncThunk('projects/startGetProjectsListDataless', async()=>{
     const response = await fetch(`${url_base}projects/dataless`);
     const data = await response.json();
